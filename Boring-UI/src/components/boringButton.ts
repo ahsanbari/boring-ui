@@ -19,6 +19,8 @@ export class BoringButton extends HTMLElement {
             color: ${buttonProps.backgroundColor ?? 'white'};
             width: ${buttonProps.width};
             height: ${buttonProps.height};
+            justify-content: center;
+            align-items: ${this.getDisplayOrder(buttonProps.displayOrder)};
         }`;
 
     }
