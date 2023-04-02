@@ -3,13 +3,58 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+h1 {
+  font-size: 5rem;
+  font-weight: 100;
+}
+h2 {
+  font-size: 4rem;
+  font-weight: 100;
+}
+span {
+  text-align: center;
+}
+header {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-bottom: 10vh;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header h1 span {
+  font-weight: 300;
+  color: #4D11F3;
+}
+
+#buttonDisplay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 900px;
+  gap: 25px;
+  margin: 0 auto;
+}
+#buttonDisplay * {
+  justify-self: center;
+  align-self: center;
 }

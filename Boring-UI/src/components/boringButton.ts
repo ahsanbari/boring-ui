@@ -3,13 +3,14 @@ import { designTokens } from "../tokens";
 
 export enum ButtonType {
     Default = 'default',
-    secondary = 'secondary',
+    Secondary = 'secondary',
     Ghost = 'ghost',
   }
 
 export class BoringButton extends HTMLElement {
 
     public onclick: ((this: GlobalEventHandlers, ev: MouseEvent) => any) | null = null;
+    public disabled?: boolean;
   
     constructor() {
       super();
@@ -37,10 +38,10 @@ export class BoringButton extends HTMLElement {
             background-color: ${designTokens.backgroundColor.default.primary};
             color: ${designTokens.text.textColor.primary};
         }
-        :host([type="default"]) button:hover {
+        :host([type="default"]) button:not(:disabled):hover {
             background-color: ${designTokens.backgroundColor.default.secondary};
         }
-        :host([type="default"]) button:active {
+        :host([type="default"]) button:not(:disabled):active {
             background-color: ${designTokens.backgroundColor.default.tertiary};
         }
 
@@ -50,11 +51,11 @@ export class BoringButton extends HTMLElement {
             color: ${designTokens.text.textColor.secondary};
             border: 2px solid ${designTokens.backgroundColor.default.primary};
         }
-        :host([type="secondary"]) button:hover {
+        :host([type="secondary"]) button:not(:disabled):hover {
             background-color: ${designTokens.backgroundColor.secondary.secondary};
             border: 2px solid ${designTokens.backgroundColor.default.secondary};
         }
-        :host([type="secondary"]) button:active {
+        :host([type="secondary"]) button:not(:disabled):active {
             background-color: ${designTokens.backgroundColor.secondary.disabled};
             border: 2px solid ${designTokens.backgroundColor.default.disabled};
         }
@@ -64,23 +65,36 @@ export class BoringButton extends HTMLElement {
             color: ${designTokens.text.textColor.secondary};
             border: none;
         }
-        :host([type="ghost"]) button:hover {
+        :host([type="ghost"]) button:not(:disabled):hover {
             background-color: ${designTokens.backgroundColor.ghost.secondary};
         }
-        :host([type="ghost"]) button:active {
+        :host([type="ghost"]) button:not(:disabled):active {
             background-color: ${designTokens.backgroundColor.ghost.disabled};
         }
+
+
+        :host([disabled]) button {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         </style>
-        <button onclick=${this.onclick ?? this.defaultClickEvent()}>
+        <button onclick=${this.onclick} ${this.checkDisabled() ? 'disabled' : ''}>
             <slot></slot>
         </button>
       `;
       const shadowRoot = this.attachShadow({ mode: 'open' });
       shadowRoot.appendChild(template.content.cloneNode(true));
+      
     }
 
-    public defaultClickEvent():void {
-        console.log('made it');
+    private checkDisabled(): boolean {
+        // Check for disabled attribute and set button disabled property accordingly
+        if (this.hasAttribute('disabled')) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
   }

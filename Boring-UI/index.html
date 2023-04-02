@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>Boring UI</title>
-  </head>
-  <body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Boring UI</title>
+	</head>
+	<body>
+		<header>
+      <h1>Welcome to</h1>
+      <h1>Boring<span>UI</span></h1>
+    </header>
+    <span>
+      <h2>Buttons</h2>
+    </span>
+    <section id="buttonDisplay">
+      <boring-button type="default">Default Button</boring-button>
+      <boring-button type="ghost">Ghost Button</boring-button>
+      <boring-button type="secondary">Outline Button</boring-button>
+      <boring-button type="default" disabled>Disabled Default</boring-button>
+      <boring-button type="ghost" disabled>Disabled Ghost</boring-button>
+      <boring-button type="secondary" disabled>Disabled Outline</boring-button>
+    </section>
+    
 
-    <div id="app"></div>
-    <boring-button type="ghost">ghost button</boring-button>
-    <boring-button type="secondary">outline button</boring-button>
-    <boring-button type="default">default button</boring-button>
-
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
 </html>
