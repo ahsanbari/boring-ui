@@ -33,6 +33,9 @@ export class BoringButton extends HTMLElement {
             font-size: ${designTokens.text.textSize.body};
             transition: ${designTokens.transition.transitionSpeed.fast}
         }
+        :host button:not(:disabled):active {
+            transform: scale(0.95);
+        }
 
         :host([type="default"]) button {
             background-color: ${designTokens.backgroundColor.default.primary};
