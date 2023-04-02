@@ -20,6 +20,7 @@ export const designTokens = {
     
     borderRadius: {
         button: '8px',
+        switch: '24px'
     },
     text: {
         fontFamily: { family: 'Inter' },
