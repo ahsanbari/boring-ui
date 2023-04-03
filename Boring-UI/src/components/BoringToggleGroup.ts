@@ -1,50 +1,90 @@
-
 import { designTokens } from "../tokens";
 import { BoringToggleItem } from "./BoringToggleItem";
 
+export enum BoringToggleGroupType {
+	Accent = "accent",
+	Default = "default",
+}
+
 export class BoringToggleGroup extends HTMLElement {
-  constructor() {
-    super();
-    const template = document.createElement("template");
-    template.innerHTML = `
-      <style>
-        :host {
-          display: flex;
-          align-items: center;
-          background-color: ${designTokens.backgroundColor.ghost.secondary};
-          padding: 0.5rem;
-        }
-        boring-toggle-item:not(:last-child) {
-          margin-right: 0.5rem;
-        }
-      </style>
-      <slot></slot>
-    `;
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.appendChild(template.content.cloneNode(true));
-    this.addEventListener("toggle", this.handleToggle);
-  }
+	private _type?: BoringToggleGroupType;
 
-  connectedCallback() {
-    this.setActiveItem();
-  }
+	constructor() {
+		super();
+		const template = document.createElement("template");
+		template.innerHTML = `
+            <style>
+                :host {
+                    display: flex;
+                    align-items: center;
+                    border-radius: ${designTokens.borderRadius.toggleGroup};
+                    background-color: ${designTokens.backgroundColor.ghost.secondary};
+                    padding: 4px;
+                    gap: 4px;
+                }
+                :host([type='default']) {
+                    gap: 5px;
+                    border: 1px solid ${designTokens.backgroundColor.ghost.disabled};
+                }
 
-  handleToggle = (event: any) => {
-    const { target } = event;
-    if (target instanceof BoringToggleItem) {
-      this.setActiveItem(target);
-    }
-  };
+            </style>
+            <slot></slot>
+        `;
+		const shadowRoot = this.attachShadow({ mode: "open" });
+		shadowRoot.appendChild(template.content.cloneNode(true));
+	}
 
-  setActiveItem(activeItem?: BoringToggleItem) {
-    const items = Array.from(
-      this.querySelectorAll<BoringToggleItem>("boring-toggle-item")
-    );
-    if (!activeItem) {
-      activeItem = items.find((item) => item.checked) || items[0];
-    }
-    items.forEach((item) => {
-      item.checked = item === activeItem;
-    });
-  }
+	connectedCallback() {
+		this.setActiveItem();
+		const toggleItems =
+			this.querySelectorAll<BoringToggleItem>("boring-toggle-item");
+		toggleItems.forEach((item) => {
+			this.type == BoringToggleGroupType.Accent
+				? item.setAttribute("toggle-type", "accent")
+				: item.setAttribute("toggle-type", "default");
+
+			item.addEventListener("click", () => {
+				this.setActiveItem(item);
+				const toggleEvent = new CustomEvent("toggle", {
+					bubbles: true,
+				});
+				this.dispatchEvent(toggleEvent);
+			});
+		});
+	}
+
+	get type(): BoringToggleGroupType {
+		return this._type!;
+	}
+
+	set type(value: BoringToggleGroupType) {
+		if (this._type !== value) {
+			this._type = value;
+			const toggleItems =
+				this.querySelectorAll<BoringToggleItem>("boring-toggle-item");
+			toggleItems.forEach((item) => {
+				item.toggleType = value;
+			});
+		}
+	}
+
+	setActiveItem(activeItem?: BoringToggleItem) {
+		const items = Array.from(
+			this.querySelectorAll<BoringToggleItem>("boring-toggle-item")
+		);
+		if (!activeItem) {
+			activeItem = items.find((item) => item.checked) || items[0];
+		}
+		items.forEach((item) => {
+			if (item === activeItem) {
+				setTimeout(() => {
+					item.checked = true;
+					item.setAttribute("checked", "");
+				}, 100); // Set a delay of 100ms
+			} else {
+				item.checked = false;
+				item.removeAttribute("checked");
+			}
+		});
+	}
 }

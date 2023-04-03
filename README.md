@@ -12,9 +12,13 @@ Boring UI is built on native web components with Typescript, HTML, and CSS
 
 (stack still tbd)
 
-### Foundation 
+### Foundation
 
 ### Action
+
+#### Buttons
+
+![Different types of buttons, toggles, and toggle groups](https://drive.google.com/file/d/13mzxLT3vp7NXwG2iLwnxhUnELsWG1kYe/view?usp=share_link)
 
 ### Containers
 
@@ -26,6 +30,4 @@ Boring UI is built on native web components with Typescript, HTML, and CSS
 
 ### Misc.
 
-
 ### Examples soon...
-

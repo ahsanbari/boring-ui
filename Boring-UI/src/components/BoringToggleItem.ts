@@ -1,40 +1,59 @@
 import { designTokens } from "../tokens";
-import { BoringToggleGroup } from "./BoringToggleGroup";
+import { BoringToggleGroup, BoringToggleGroupType } from "./BoringToggleGroup";
 
 export class BoringToggleItem extends HTMLElement {
 	private _checked: boolean = false;
-
+	public toggleType?: BoringToggleGroupType;
 	constructor() {
 		super();
-
 		const template = document.createElement("template");
 		template.innerHTML = `
-        <style>
+      <style>
         :host {
-          display: inline-flex;
+          display: flex;
           align-items: center;
-          padding: 0.5rem;
+          justify-content: center;
           cursor: pointer;
-          user-select: none;
+          padding: 0.5rem;
+          height: 100%;
+          background-color: ${designTokens.backgroundColor.ghost.primary};
+          border-radius: ${designTokens.borderRadius.button};
+          transition: ${designTokens.transition.transitionSpeed.fast};
         }
         :host(:hover) {
-          background-color: ${designTokens.backgroundColor.ghost.secondary};
+          background-color: ${designTokens.backgroundColor.ghost.disabled};
         }
-        :host([checked]) {
+
+        :host([toggle-type="default"]) {
+          color: ${designTokens.text.textColor.secondary};
+        }
+        :host([toggle-type="default"][checked]) {
+          background-color: ${designTokens.backgroundColor.baseColors.white};
+          box-shadow: ${designTokens.elevation.small};
+        }
+
+        :host([toggle-type="accent"]) {
+          color: ${designTokens.text.textColor.accent};
+        }
+        :host([toggle-type="accent"][checked]) {
           background-color: ${designTokens.backgroundColor.default.primary};
-          color: white;
+          color: ${designTokens.text.textColor.primary};
         }
-        </style>
-        <slot></slot>
+
+
+
+        :host([checked]:active) {
+          transform: scale(0.95);
+        }
+      </style>
+      <slot></slot>
     `;
 		const shadowRoot = this.attachShadow({ mode: "open" });
 		shadowRoot.appendChild(template.content.cloneNode(true));
 		this.addEventListener("click", this.handleClick);
-	}
-
-	connectedCallback() {
-		if (!this.hasAttribute("role")) {
-			this.setAttribute("role", "tab");
+		const parent = this.parentNode as Element;
+		if (parent instanceof BoringToggleGroup) {
+			this.setAttribute("toggle-type", parent.getAttribute("type")!);
 		}
 	}
 
@@ -42,25 +61,28 @@ export class BoringToggleItem extends HTMLElement {
 		return this._checked;
 	}
 
-	set checked(value) {
+	set checked(value: boolean) {
 		const oldValue = this._checked;
 		this._checked = value;
 		if (value !== oldValue) {
+			this.dispatchEvent(
+				new CustomEvent("toggle", {
+					bubbles: true,
+					detail: { checked: this._checked },
+				})
+			);
 			if (value) {
 				this.setAttribute("checked", "");
 			} else {
 				this.removeAttribute("checked");
 			}
-			this.dispatchEvent(new CustomEvent("toggle", { bubbles: true }));
 		}
 	}
 
 	handleClick = () => {
-		if (!this.checked) {
-			const group = this.closest("boring-toggle-group");
-			if (group instanceof BoringToggleGroup) {
-				group.setActiveItem(this);
-			}
+		const group = this.parentElement;
+		if (group instanceof BoringToggleGroup) {
+			group.setActiveItem(this);
 		}
 	};
 }

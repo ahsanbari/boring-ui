@@ -13,54 +13,56 @@
 	</head>
 	<body>
 		<header>
-      <h1>Welcome to</h1>
-      <h1>Boring<span>UI</span></h1>
-    </header>
-    <span>
-      <h2>Buttons</h2>
-    </span>
+			<h1>Welcome to</h1>
+			<h1>Boring<span>UI</span></h1>
+		</header>
+		<span>
+			<h2>Buttons</h2>
+		</span>
 
-    <span>
-      <h4>Standard</h4>
-    </span>
-    <section id="buttonDisplay">
-      <boring-button type="default">Default Button</boring-button>
-      <boring-button type="ghost">Ghost Button</boring-button>
-      <boring-button type="secondary">Outline Button</boring-button>
-      <boring-button type="default" disabled>Disabled Default</boring-button>
-      <boring-button type="ghost" disabled>Disabled Ghost</boring-button>
-      <boring-button type="secondary" disabled>Disabled Outline</boring-button>
-    </section>
-    
-    <span>
-      <h4>Toggle</h4>
-    </span>
-    <section id="toggleDisplay">
-      <boring-toggle checked>Toggle Me</boring-toggle>
-      <boring-toggle>Unchecked</boring-toggle>
-      <boring-switch></boring-switch>
-    </section>
+		<span>
+			<h4>Standard</h4>
+		</span>
+		<section id="buttonDisplay">
+			<boring-button type="default">Default Button</boring-button>
+			<boring-button type="ghost">Ghost Button</boring-button>
+			<boring-button type="secondary">Outline Button</boring-button>
+			<boring-button type="default" disabled
+				>Disabled Default</boring-button
+			>
+			<boring-button type="ghost" disabled>Disabled Ghost</boring-button>
+			<boring-button type="secondary" disabled
+				>Disabled Outline</boring-button
+			>
+		</section>
 
-    <span>
-      <h4>Toggle Groups</h4>
-    </span>
-    <section id="toggleDisplay">
-      <boring-toggle-group>
-        <boring-toggle-item>Tab 1</boring-toggle-item>
-        <boring-toggle-item checked>Tab 2</boring-toggle-item>
-        <boring-toggle-item>Tab 3</boring-toggle-item>
-      </boring-toggle-group>
-    </section>
+		<span>
+			<h4>Toggle</h4>
+		</span>
+		<section id="toggleDisplay">
+			<boring-toggle checked>Toggle Me</boring-toggle>
+			<boring-toggle>Unchecked</boring-toggle>
+			<boring-switch></boring-switch>
+			<boring-switch checked></boring-switch>
+		</section>
 
+		<span>
+			<h4>Toggle Groups</h4>
+		</span>
+		<section id="toggleDisplay">
+			<boring-toggle-group type="accent">
+				<boring-toggle-item>Button</boring-toggle-item>
+				<boring-toggle-item>Button</boring-toggle-item>
+				<boring-toggle-item>Button</boring-toggle-item>
+			</boring-toggle-group>
+			<boring-toggle-group type="default">
+				<boring-toggle-item>Button</boring-toggle-item>
+				<boring-toggle-item>Button</boring-toggle-item>
+				<boring-toggle-item>Button</boring-toggle-item>
+			</boring-toggle-group>
+		</section>
 
-
-
-
-
-
-
-
-    <footer></footer>
+		<footer></footer>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>

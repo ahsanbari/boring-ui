@@ -1,12 +1,12 @@
 import { designTokens } from "../tokens";
 
 export class BoringSwitch extends HTMLElement {
-  private input: HTMLInputElement;
+	private input: HTMLInputElement;
 
-  constructor() {
-    super();
-    const template = document.createElement("template");
-    template.innerHTML = `
+	constructor() {
+		super();
+		const template = document.createElement("template");
+		template.innerHTML = `
       <style>
         :host {
           display: inline-block;
@@ -36,10 +36,10 @@ export class BoringSwitch extends HTMLElement {
           left: 0;
           right: 0;
           bottom: 0;
-          background-color: ${designTokens.backgroundColor.ghost.secondary};
+          background-color: ${designTokens.backgroundColor.ghost.disabled};
           border-radius: 24px;
           transition: ${designTokens.transition.transitionSpeed.fast};
-          outline: 1px solid ${designTokens.backgroundColor.default.primary};
+          outline: .5px solid ${designTokens.backgroundColor.default.primary};
         }
 
         .slider::before {
@@ -78,56 +78,56 @@ export class BoringSwitch extends HTMLElement {
       </label>
     `;
 
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.appendChild(template.content.cloneNode(true));
+		const shadowRoot = this.attachShadow({ mode: "open" });
+		shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.input = shadowRoot.querySelector("input")!;
+		this.input = shadowRoot.querySelector("input")!;
 
-    // Add click event listener to toggle the switch state
-    this.addEventListener("click", () => {
-      this.toggle();
-    });
-  }
+		// Add click event listener to toggle the switch state
+		this.addEventListener("click", () => {
+			this.toggle();
+		});
+	}
 
-  public toggle(): void {
-    this.input.checked = !this.input.checked;
-    this.dispatchEvent(new Event("change"));
-  }
+	public toggle(): void {
+		this.input.checked = !this.input.checked;
+		this.dispatchEvent(new Event("change"));
+	}
 
-  public connectedCallback(): void {
-    // Add the 'checked' attribute if the checkbox is checked
-    if (this.input.checked) {
-      this.setAttribute("checked", "");
-    }
-  }
+	public connectedCallback(): void {
+		// Add the 'checked' attribute if the checkbox is checked
+		if (this.input.checked) {
+			this.setAttribute("checked", "");
+		}
+	}
 
-  public static get observedAttributes(): string[] {
-    return ["checked"];
-  }
+	public static get observedAttributes(): string[] {
+		return ["checked"];
+	}
 
-  public attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string
-  ): void {
-    if (name === "checked" && oldValue !== newValue) {
-      if (newValue === null) {
-        this.input.checked = false;
-      } else {
-        this.input.checked = true;
-      }
-    }
-  }
+	public attributeChangedCallback(
+		name: string,
+		oldValue: string,
+		newValue: string
+	): void {
+		if (name === "checked" && oldValue !== newValue) {
+			if (newValue === null) {
+				this.input.checked = false;
+			} else {
+				this.input.checked = true;
+			}
+		}
+	}
 
-  public get checked(): boolean {
-    return this.input.checked;
-  }
+	public get checked(): boolean {
+		return this.input.checked;
+	}
 
-  public set checked(value: boolean) {
-    if (value) {
-      this.setAttribute("checked", "");
-    } else {
-      this.removeAttribute("checked");
-    }
-  }
+	public set checked(value: boolean) {
+		if (value) {
+			this.setAttribute("checked", "");
+		} else {
+			this.removeAttribute("checked");
+		}
+	}
 }
