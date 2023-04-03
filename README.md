@@ -17,8 +17,8 @@ Boring UI is built on native web components with Typescript, HTML, and CSS
 ### Action
 
 #### Buttons
+<img width="1006" alt="Screen Shot 2023-04-03 at 4 41 49 PM" src="https://user-images.githubusercontent.com/29098280/229624271-f0762647-79b8-4e3c-97eb-38f166c71cc8.png">
 
-![Different types of buttons, toggles, and toggle groups](https://drive.google.com/file/d/13mzxLT3vp7NXwG2iLwnxhUnELsWG1kYe/view?usp=sharing)
 
 ### Containers
 
