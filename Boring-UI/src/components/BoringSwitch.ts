@@ -39,6 +39,7 @@ export class BoringSwitch extends HTMLElement {
           background-color: ${designTokens.backgroundColor.ghost.secondary};
           border-radius: 24px;
           transition: ${designTokens.transition.transitionSpeed.fast};
+          outline: 1px solid ${designTokens.backgroundColor.default.primary};
         }
 
         .slider::before {
@@ -50,6 +51,7 @@ export class BoringSwitch extends HTMLElement {
           bottom: 2px;
           background-color: white;
           border-radius: 50%;
+          box-shadow: ${designTokens.elevation.small};
           transition: ${designTokens.transition.transitionSpeed.fast};
         }
 

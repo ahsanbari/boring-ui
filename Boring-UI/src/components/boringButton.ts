@@ -47,6 +47,9 @@ export class BoringButton extends HTMLElement {
         :host([type="default"]) button:not(:disabled):active {
             background-color: ${designTokens.backgroundColor.default.tertiary};
         }
+        :host([type="default"]) button:not(:disabled):focus {
+            outline: 1px solid ${designTokens.backgroundColor.default.disabled};
+        }
 
 
         :host([type="secondary"]) button {
@@ -59,8 +62,9 @@ export class BoringButton extends HTMLElement {
             border: 2px solid ${designTokens.backgroundColor.default.secondary};
         }
         :host([type="secondary"]) button:not(:disabled):active {
-            background-color: ${designTokens.backgroundColor.secondary.disabled};
-            border: 2px solid ${designTokens.backgroundColor.default.disabled};
+            background-color: ${designTokens.backgroundColor.default.tertiary};
+            border: 2px solid ${designTokens.backgroundColor.default.tertiary};
+            color: ${designTokens.text.textColor.primary};
         }
 
         :host([type="ghost"]) button {

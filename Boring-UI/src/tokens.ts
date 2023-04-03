@@ -22,6 +22,12 @@ export const designTokens = {
         button: '8px',
         switch: '24px'
     },
+
+    elevation: {
+        small: '0 3px 10px rgb(0 0 0 / 0.2)',
+        medium: '0 0 50px #ccc'
+    },
+
     text: {
         fontFamily: { family: 'Inter' },
         fontWeight: {
