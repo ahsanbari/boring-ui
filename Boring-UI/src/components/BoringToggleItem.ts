@@ -42,7 +42,7 @@ export class BoringToggleItem extends HTMLElement {
 
 
 
-        :host([checked]:active) {
+        :host(:active) {
           transform: scale(0.95);
         }
       </style>
