@@ -1,6 +1,6 @@
 import { designTokens } from "../tokens";
 import { BoringButton } from "./BoringButton";
-import { colorPalette } from "./colors";
+import { colorPalette } from "../colors";
 
 export class BoringToggle extends BoringButton {
 	private _checked = false;

@@ -1,5 +1,5 @@
 import { IDesignTokens } from "./IDesignTokens";
-import { colorPalette } from "./components/colors";
+import { colorPalette } from "./colors";
 
 export const designTokens: IDesignTokens = {
 	backgroundColor: {
