@@ -1,6 +1,6 @@
 import { designTokens } from "../tokens";
 import { BoringToggleItem } from "./BoringToggleItem";
-import { colorPalette } from "./colors";
+import { colorPalette } from "../colors";
 
 export enum BoringToggleGroupType {
 	Accent = "accent",
