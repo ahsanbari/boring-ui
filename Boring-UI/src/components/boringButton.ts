@@ -1,21 +1,21 @@
 import { designTokens } from "../tokens";
 
-
 export enum ButtonType {
-    Default = 'default',
-    Secondary = 'secondary',
-    Ghost = 'ghost',
-  }
+	Default = "default",
+	Secondary = "secondary",
+	Ghost = "ghost",
+}
 
 export class BoringButton extends HTMLElement {
+	public onclick:
+		| ((this: GlobalEventHandlers, ev: MouseEvent) => any)
+		| null = null;
+	public disabled?: boolean;
 
-    public onclick: ((this: GlobalEventHandlers, ev: MouseEvent) => any) | null = null;
-    public disabled?: boolean;
-  
-    constructor() {
-      super();
-      const template = document.createElement('template');
-      template.innerHTML = `
+	constructor() {
+		super();
+		const template = document.createElement("template");
+		template.innerHTML = `
       <style>
         :host {
             display: inline-block;
@@ -39,7 +39,7 @@ export class BoringButton extends HTMLElement {
 
         :host([type="default"]) button {
             background-color: ${designTokens.backgroundColor.default.primary};
-            color: ${designTokens.text.textColor.primary};
+            color: ${designTokens.text.textColor.white};
         }
         :host([type="default"]) button:not(:disabled):hover {
             background-color: ${designTokens.backgroundColor.default.secondary};
@@ -54,22 +54,22 @@ export class BoringButton extends HTMLElement {
 
         :host([type="secondary"]) button {
             background-color: ${designTokens.backgroundColor.secondary.primary};
-            color: ${designTokens.text.textColor.secondary};
+            color: ${designTokens.text.textColor.black};
             border: 2px solid ${designTokens.backgroundColor.default.primary};
         }
         :host([type="secondary"]) button:not(:disabled):hover {
-            background-color: ${designTokens.backgroundColor.secondary.secondary};
+            background-color: ${designTokens.backgroundColor.ghost.secondary};
             border: 2px solid ${designTokens.backgroundColor.default.secondary};
         }
         :host([type="secondary"]) button:not(:disabled):active {
             background-color: ${designTokens.backgroundColor.default.tertiary};
             border: 2px solid ${designTokens.backgroundColor.default.tertiary};
-            color: ${designTokens.text.textColor.primary};
+            color: ${designTokens.text.textColor.white};
         }
 
         :host([type="ghost"]) button {
             background-color: ${designTokens.backgroundColor.ghost.primary};
-            color: ${designTokens.text.textColor.secondary};
+            color: ${designTokens.text.textColor.black};
             border: none;
         }
         :host([type="ghost"]) button:not(:disabled):hover {
@@ -86,25 +86,22 @@ export class BoringButton extends HTMLElement {
         }
 
         </style>
-        <button onclick=${this.onclick} ${this.checkDisabled() ? 'disabled' : ''}>
+        <button onclick=${this.onclick} ${
+			this.checkDisabled() ? "disabled" : ""
+		}>
             <slot></slot>
         </button>
       `;
-      const shadowRoot = this.attachShadow({ mode: 'open' });
-      shadowRoot.appendChild(template.content.cloneNode(true));
-      
-    }
+		const shadowRoot = this.attachShadow({ mode: "open" });
+		shadowRoot.appendChild(template.content.cloneNode(true));
+	}
 
-    private checkDisabled(): boolean {
-        // Check for disabled attribute and set button disabled property accordingly
-        if (this.hasAttribute('disabled')) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-  }
-  
-
-  
+	private checkDisabled(): boolean {
+		// Check for disabled attribute and set button disabled property accordingly
+		if (this.hasAttribute("disabled")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

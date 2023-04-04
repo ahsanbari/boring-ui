@@ -1,24 +1,29 @@
-export const designTokens = {
+import { IDesignTokens } from "./IDesignTokens";
+import { colorPalette } from "./components/colors";
+
+export const designTokens: IDesignTokens = {
 	backgroundColor: {
 		default: {
-			primary: "#4D11F3",
-			secondary: "#3409AC",
-			tertiary: "#26077E",
-			disabled: "#4D11F3",
+			primary: colorPalette.purple.normal,
+			secondary: colorPalette.purple.shaded,
+			tertiary: colorPalette.purple.dark,
+			disabled: colorPalette.purple.light,
 		},
 		secondary: {
 			primary: "transparent",
-			secondary: "#F1F1F4",
-			disabled: "#E5E5EA",
+			secondary: colorPalette.neutral.medium,
+			tertiary: colorPalette.neutral.normal,
+			disabled: colorPalette.neutral.light,
 		},
 		ghost: {
 			primary: "transparent",
-			secondary: "#F8F8F9",
-			disabled: "#F1F1F4",
+			secondary: colorPalette.neutral.lighter,
+			tertiary: colorPalette.neutral.shaded,
+			disabled: colorPalette.neutral.light,
 		},
 		baseColors: {
-			white: "#fff",
-			black: "#000",
+			white: colorPalette.baseColors.white,
+			black: colorPalette.baseColors.black,
 		},
 	},
 
@@ -46,9 +51,9 @@ export const designTokens = {
 			ExtraBold: 800,
 		},
 		textColor: {
-			primary: "#FFFFFF",
-			secondary: "#373745",
-			accent: "#4D11F3",
+			white: colorPalette.baseColors.white,
+			black: colorPalette.baseColors.black,
+			accent: "",
 		},
 		textSize: {
 			h1: "5rem",

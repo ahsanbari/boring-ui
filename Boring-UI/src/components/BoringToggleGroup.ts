@@ -1,5 +1,6 @@
 import { designTokens } from "../tokens";
 import { BoringToggleItem } from "./BoringToggleItem";
+import { colorPalette } from "./colors";
 
 export enum BoringToggleGroupType {
 	Accent = "accent",
@@ -22,9 +23,12 @@ export class BoringToggleGroup extends HTMLElement {
                     padding: 4px;
                     gap: 4px;
                 }
+                :host([type="accent"]) {
+                    background-color: ${colorPalette.neutral.lighter}
+                }
                 :host([type='default']) {
                     gap: 5px;
-                    border: 1px solid ${designTokens.backgroundColor.ghost.disabled};
+                    border: 1px solid ${designTokens.backgroundColor.ghost.tertiary};
                 }
 
             </style>

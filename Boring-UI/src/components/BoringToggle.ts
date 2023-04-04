@@ -1,5 +1,6 @@
 import { designTokens } from "../tokens";
 import { BoringButton } from "./BoringButton";
+import { colorPalette } from "./colors";
 
 export class BoringToggle extends BoringButton {
 	private _checked = false;
@@ -35,12 +36,11 @@ export class BoringToggle extends BoringButton {
 			button.setAttribute("type", "default");
 			button.style.backgroundColor =
 				designTokens.backgroundColor.default.primary;
-			button.style.color = designTokens.text.textColor.primary;
+			button.style.color = designTokens.text.textColor.white;
 		} else {
 			button.setAttribute("type", "ghost");
-			button.style.backgroundColor =
-				designTokens.backgroundColor.ghost.secondary;
-			button.style.color = designTokens.text.textColor.secondary;
+			button.style.backgroundColor = colorPalette.neutral.medium;
+			button.style.color = designTokens.text.textColor.black;
 		}
 	}
 

@@ -25,7 +25,7 @@ export class BoringToggleItem extends HTMLElement {
         }
 
         :host([toggle-type="default"]) {
-          color: ${designTokens.text.textColor.secondary};
+          color: ${designTokens.text.textColor.black};
         }
         :host([toggle-type="default"][checked]) {
           background-color: ${designTokens.backgroundColor.baseColors.white};
@@ -37,7 +37,7 @@ export class BoringToggleItem extends HTMLElement {
         }
         :host([toggle-type="accent"][checked]) {
           background-color: ${designTokens.backgroundColor.default.primary};
-          color: ${designTokens.text.textColor.primary};
+          color: ${designTokens.text.textColor.white};
         }
 
 
