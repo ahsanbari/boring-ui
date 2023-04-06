@@ -1,87 +1,102 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
 
-  color-scheme: light;
+	color-scheme: light;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-
+	margin: 0;
+	padding: 0;
 }
 h1 {
-  font-size: 5rem;
-  font-weight: 100;
+	font-size: 5rem;
+	font-weight: 100;
 }
 h2 {
-  font-size: 4rem;
-  font-weight: 100;
-
+	font-size: 4rem;
+	font-weight: 100;
 }
 h4 {
-  font-size: 2.5rem;
-  font-weight: 200;
-  color: #4D11F3;
+	font-size: 2.5rem;
+	font-weight: 200;
+	color: #4d11f3;
 }
 span {
-  text-align: center;
+	text-align: center;
 }
 header {
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
-  margin-bottom: 10vh;
+	margin-bottom: 10vh;
 }
 
 header h1 {
-  margin: 0;
+	margin: 0;
 }
 
 header h1 span {
-  font-weight: 300;
-  color: #4D11F3;
+	font-weight: 300;
+	color: #4d11f3;
 }
 
 span h2 {
-  font-weight: 700;
+	font-weight: 700;
+}
+.sectionHeader {
+	display: block;
+	margin-top: 25vh;
 }
 
 #buttonDisplay {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 900px;
-  gap: 25px;
-  margin: 0 auto;
-  margin-bottom: 10vh;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	max-width: 900px;
+	gap: 25px;
+	margin: 0 auto;
+	margin-bottom: 10vh;
 }
 #buttonDisplay * {
-  justify-self: center;
-  align-self: center;
+	justify-self: center;
+	align-self: center;
 }
 
 #toggleDisplay {
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
 }
 
+#cardContainer {
+	display: flex;
+	max-width: 1080px;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+}
 
+#card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 50px;
+}
 
 footer {
-  display: flex;
-  height: 30vh;
-  margin-top: 10vh;
+	display: flex;
+	height: 30vh;
+	margin-top: 10vh;
 }

@@ -16,7 +16,7 @@
 			<h1>Welcome to</h1>
 			<h1>Boring<span>UI</span></h1>
 		</header>
-		<span>
+		<span class="sectionHeader">
 			<h2>Buttons</h2>
 		</span>
 
@@ -58,8 +58,34 @@
 			<boring-toggle-group type="default">
 				<boring-toggle-item>Button</boring-toggle-item>
 				<boring-toggle-item>Button</boring-toggle-item>
-				<boring-toggle-item>Button</boring-toggle-item>
+				<boring-toggle-item>Button</boring-toggle-item>å
 			</boring-toggle-group>
+		</section>
+
+		<span class="sectionHeader">
+			<h2>Panels</h2>
+		</span>
+		<span>
+			<h4>Card</h4>
+		</span>
+		<section id="cardContainer">
+			<boring-card id="card">
+				<h3>This is a boring card.</h3>
+				<div>
+					<boring-button>Click Me</boring-button>
+					<boring-button type="default">Or Me</boring-button>
+				</div>
+			</boring-card>
+		</section>
+		<span>
+			<h4>Modal</h4>
+		</span>
+		<section id="cardContainer">
+			<boring-modal>
+				<div slot="header">Modal Title</div>
+				<div slot="body">Modal Body</div>
+				<div slot="footer">Modal Footer</div>
+			</boring-modal>
 		</section>
 
 		<footer></footer>
