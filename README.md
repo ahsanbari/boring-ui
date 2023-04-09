@@ -2,7 +2,7 @@
 
 ## A new UI that is anything but boring
 
-A UI interface, found here https://www.figma.com/community/file/1220901132706463095
+A UI system, found here https://www.figma.com/community/file/1220901132706463095
 
 ## Roadmap
 
