@@ -87,12 +87,23 @@ span h2 {
 	justify-content: center;
 	align-items: center;
 }
+.modalContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	max-width: 75vw;
+}
 
 #card {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	gap: 50px;
+}
+
+#modal h2 {
+	font-size: medium;
 }
 
 footer {

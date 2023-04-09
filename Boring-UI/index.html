@@ -58,7 +58,7 @@
 			<boring-toggle-group type="default">
 				<boring-toggle-item>Button</boring-toggle-item>
 				<boring-toggle-item>Button</boring-toggle-item>
-				<boring-toggle-item>Button</boring-toggle-item>å
+				<boring-toggle-item>Button</boring-toggle-item>
 			</boring-toggle-group>
 		</section>
 
@@ -71,24 +71,57 @@
 		<section id="cardContainer">
 			<boring-card id="card">
 				<h3>This is a boring card.</h3>
-				<div>
-					<boring-button>Click Me</boring-button>
-					<boring-button type="default">Or Me</boring-button>
-				</div>
 			</boring-card>
 		</section>
 		<span>
-			<h4>Modal</h4>
+			<h4>
+				Modal
+				<boring-button type="ghost" id="addModal">+</boring-button>
+			</h4>
 		</span>
-		<section id="cardContainer">
-			<boring-modal>
-				<div slot="header">Modal Title</div>
-				<div slot="body">Modal Body</div>
-				<div slot="footer">Modal Footer</div>
+		<section id="cardContainer" class="modalContainer">
+			<boring-modal id="modal">
+				<div slot="header">
+					<h2>Modal Title</h2>
+				</div>
+				<div slot="body">
+					<p>This is the body of the modal.</p>
+				</div>
+				<div slot="footer">
+					<boring-button type="default">OK</boring-button>
+					<boring-button type="secondary">Cancel</boring-button>
+				</div>
 			</boring-modal>
 		</section>
 
 		<footer></footer>
+		<script type="module">
+			const modalGenerator = document.getElementById("addModal");
+			const modalContainer =
+				document.getElementsByClassName("modalContainer")[0];
+			let modalCount = 1;
+
+			modalGenerator.addEventListener("click", () => {
+				const modalTemplate = document.createElement("boring-modal");
+				modalTemplate.id = "modal" + modalCount;
+				modalCount++;
+
+				modalTemplate.innerHTML = `
+				<div slot="header">
+					<h3>Modal Title</h3>
+				</div>
+				<div slot="body">
+					<p>This is the body of the modal.</p>
+				</div>
+				<div slot="footer">
+					<boring-button type="default">OK</boring-button>
+					<boring-button type="secondary">Cancel</boring-button>
+				</div>
+				`;
+
+				modalContainer.appendChild(modalTemplate);
+			});
+		</script>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>
