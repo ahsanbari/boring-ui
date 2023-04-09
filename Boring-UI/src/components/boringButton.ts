@@ -1,3 +1,4 @@
+import { colorPalette } from "../colors";
 import { designTokens } from "../tokens";
 
 export enum ButtonType {
@@ -55,16 +56,15 @@ export class BoringButton extends HTMLElement {
         :host([type="secondary"]) button {
             background-color: ${designTokens.backgroundColor.secondary.primary};
             color: ${designTokens.text.textColor.black};
-            border: 2px solid ${designTokens.backgroundColor.default.primary};
+            border: 1px solid ${colorPalette.neutral.light};
         }
         :host([type="secondary"]) button:not(:disabled):hover {
             background-color: ${designTokens.backgroundColor.ghost.secondary};
-            border: 2px solid ${designTokens.backgroundColor.default.secondary};
+            border: 1px solid ${colorPalette.neutral.medium};
         }
         :host([type="secondary"]) button:not(:disabled):active {
-            background-color: ${designTokens.backgroundColor.default.tertiary};
-            border: 2px solid ${designTokens.backgroundColor.default.tertiary};
-            color: ${designTokens.text.textColor.white};
+            background-color: ${designTokens.backgroundColor.ghost.disabled};
+            border: 1px solid ${colorPalette.neutral.shaded};
         }
 
         :host([type="ghost"]) button {
