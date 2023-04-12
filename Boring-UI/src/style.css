@@ -100,6 +100,7 @@ span h2 {
 	flex-direction: column;
 	justify-content: center;
 	gap: 50px;
+	padding: 1rem;
 }
 
 #modal h2 {

@@ -12,7 +12,6 @@ export class BoringCard extends HTMLElement {
                 :host {
                     display: flex;
                     box-sizing: border-box;
-                    padding: 1rem;
                     background-color: ${designTokens.backgroundColor.baseColors.white};
                     border-radius: ${designTokens.borderRadius.toggleGroup};
                     box-shadow: ${designTokens.elevation.small};

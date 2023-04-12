@@ -105,7 +105,7 @@
 				const modalTemplate = document.createElement("boring-modal");
 				modalTemplate.id = "modal" + modalCount;
 				modalCount++;
-
+				modalTemplate.setAttribute("modalSize", "small");
 				modalTemplate.innerHTML = `
 				<div slot="header">
 					<h3>Modal Title</h3>
