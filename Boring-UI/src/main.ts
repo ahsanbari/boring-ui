@@ -6,10 +6,16 @@ import { BoringToggleGroup } from "./components/BoringToggleGroup";
 import { BoringToggleItem } from "./components/BoringToggleItem";
 import { BoringCard } from "./panels/BoringCard";
 import { BoringModal } from "./panels/BoringModal";
+import { BoringCheckbox } from "./inputs/BoringCheckbox";
+import { BoringRadio } from "./inputs/BoringRadio";
+import { BoringRadioGroup } from "./inputs/BoringRadioGroup";
 
 BoringButton;
 BoringCard;
+BoringCheckbox;
 BoringModal;
+BoringRadio;
+BoringRadioGroup;
 BoringToggle;
 BoringSwitch;
 BoringToggleGroup;
@@ -17,7 +23,10 @@ BoringToggleItem;
 
 customElements.define("boring-button", BoringButton);
 customElements.define("boring-card", BoringCard);
+customElements.define("boring-checkbox", BoringCheckbox);
 customElements.define("boring-modal", BoringModal);
+customElements.define("boring-radio", BoringRadio);
+customElements.define("boring-radio-group", BoringRadioGroup);
 customElements.define("boring-toggle", BoringToggle);
 customElements.define("boring-switch", BoringSwitch);
 customElements.define("boring-toggle-group", BoringToggleGroup);
