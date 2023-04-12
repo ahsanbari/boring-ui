@@ -25,7 +25,7 @@ export class BoringRadio extends HTMLElement {
                 display: inline-block;
                 width: 16px;
                 height: 16px;
-                border: 1px solid ${designTokens.backgroundColor.default.primary};
+                border: 1px solid ${designTokens.backgroundColor.secondary.secondary};
                 border-radius: 50%;
                 margin: 0;
                 vertical-align: middle;
@@ -34,7 +34,22 @@ export class BoringRadio extends HTMLElement {
 
                 transition: ${designTokens.transition.transitionSpeed.fast};
             }
+            input[type="radio"]:hover {
+                background-color: ${designTokens.backgroundColor.ghost.secondary};
+            }
+            input[type="radio"]:active {
+                background-color: ${designTokens.backgroundColor.secondary.secondary};
+            }
 
+            input[type="radio"]:checked {
+                border: 1.5px solid ${designTokens.backgroundColor.default.primary};
+            }
+            input[type="radio"]:checked:hover {
+                border: 1.5px solid ${designTokens.backgroundColor.default.secondary};
+            }
+            input[type="radio"]:checked:active {
+                border: 1.5px solid ${designTokens.backgroundColor.default.tertiary};
+            }
             input[type="radio"]:checked:before {
                 content: "";
                 display: block;

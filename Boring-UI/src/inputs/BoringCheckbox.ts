@@ -25,7 +25,7 @@ export class BoringCheckbox extends HTMLElement {
                 display: inline-block;
                 width: 16px;
                 height: 16px;
-                border: 1px solid ${designTokens.backgroundColor.default.primary};
+                border: 1px solid ${designTokens.backgroundColor.secondary.secondary};
                 border-radius: ${designTokens.borderRadius.input};
                 margin: 0;
                 vertical-align: middle;
@@ -35,8 +35,23 @@ export class BoringCheckbox extends HTMLElement {
                 transition: ${designTokens.transition.transitionSpeed.fast};
             }
 
+            input[type="checkbox"]:hover {
+                background-color: ${designTokens.backgroundColor.ghost.secondary};
+            }
+            input[type="checkbox"]:active {
+                background-color: ${designTokens.backgroundColor.secondary.secondary};
+            }
+
+
             input[type="checkbox"]:checked {
+                border: 1px solid ${designTokens.backgroundColor.default.primary};
                 background-color: ${designTokens.backgroundColor.default.primary};
+            }
+                input[type="checkbox"]:checked:hover {
+                background-color: ${designTokens.backgroundColor.default.secondary};
+            }
+            input[type="checkbox"]:checked:active {
+                background-color: ${designTokens.backgroundColor.default.tertiary};
             }
 
             input[type="checkbox"]:checked:before {
