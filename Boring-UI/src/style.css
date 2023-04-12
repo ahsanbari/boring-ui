@@ -113,7 +113,13 @@ span h2 {
 	align-items: center;
 	gap: 15px;
 }
-
+.textbox-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 720px;
+	margin: 0 auto;
+}
 footer {
 	display: flex;
 	height: 30vh;
