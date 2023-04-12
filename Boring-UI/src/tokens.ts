@@ -31,6 +31,7 @@ export const designTokens: IDesignTokens = {
 		button: "8px",
 		switch: "24px",
 		toggleGroup: "12px",
+		input: "4px",
 	},
 
 	elevation: {

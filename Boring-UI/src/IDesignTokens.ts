@@ -27,6 +27,7 @@ export interface IDesignTokens {
 		button: string;
 		switch: string;
 		toggleGroup: string;
+		input: string;
 	};
 	elevation: {
 		small: string;
