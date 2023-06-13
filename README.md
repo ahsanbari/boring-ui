@@ -18,8 +18,7 @@ npm install to install tsc and vite
 
 To build:
 
-vite build
-npm run dev
+vite build or npm run dev
 
 ### Foundation
 
