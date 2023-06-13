@@ -12,14 +12,14 @@ Boring UI is built on native web components with Typescript, HTML, and CSS
 
 #### Build Instructions
 
-Make sure to be in Boring-UI $ cd ./Boring-UI $
+Make sure to be in Boring-UI -> cd ./Boring-UI 
 
-$ npm install $ to install tsc and vite
+npm install to install tsc and vite
 
 To build:
 
-$ vite build $
-$ npm run dev $
+vite build
+npm run dev
 
 ### Foundation
 
