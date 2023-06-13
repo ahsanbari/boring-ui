@@ -10,6 +10,17 @@ A UI system, found here https://www.figma.com/community/file/1220901132706463095
 
 Boring UI is built on native web components with Typescript, HTML, and CSS
 
+#### Build Instructions
+
+Make sure to be in Boring-UI $ cd ./Boring-UI $
+
+$ npm install $ to install tsc and vite
+
+To build:
+
+$ vite build $
+$ npm run dev $
+
 ### Foundation
 
 ### Action
